@@ -1,0 +1,40 @@
+/* Global CSS */
+
+/* custom semantics used in the index.html */
+.highlight-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    border: 2px solid black;
+    padding: 15px;
+    margin: 20px 0;
+    background-color: #f8f8f8;
+}
+
+/* stacks text in the highlight box vertical */
+.highlight-text {
+    display: flex;              /* Enables Flexbox */
+    flex-direction: column;     /* Stacks text vertically */
+    align-items: center;        /* Centers text horizontally */
+    text-align: center;         /* Ensures text is centered */
+    flex: 1;                    /* Allows text to take available space */
+}
+
+
+body {
+    border: 2px solid black;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+
+ul {
+    padding-left: 20px;
+}
+
+strong {
+    font-weight: bold;
+}
+

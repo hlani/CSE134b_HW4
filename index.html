@@ -4,73 +4,21 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    
+
     <title> Home </title>
 
      <!-- SEO tags -->
      <meta name="description" content="Hailani Lam's Portfolio - Showcasing projects, photography, and blogs.">
      <meta name="keywords" content="Hailani Lam, portfolio, projects, AI, photography, web development">
      <meta name="author" content="Hailani Lam">
+
+     <link rel="stylesheet" href="styles.css">
+    
     
 </head>
 
-    <style>
-        /* Custom Semantic Element */
-        highlight-box {
-            display: block;
-            border: 2px solid black;
-            padding: 15px;
-            margin: 20px 0;
-            background-color: #f8f8f8;
-        }
-
-        body {
-            border: 2px solid black;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-        }
-
-        h1, h2 {
-            margin-bottom: 10px;
-        }
-
-        ul {
-            padding-left: 20px;
-        }
-
-        strong {
-            font-weight: bold;
-        }
-
-    
-    </style>
-
-
-    <script>
-        /* script placeholder */   
-        console.log("temporary script filler")
-    </script>
-
-    
-
-    <script>
-        class HelloWorld extends HTMLElement {
-            constructor() {
-                super();
-                console.log("Hello world!");
-            }
-        }
-        customElements.define("hello-world", HelloWorld);
-    </script>
-
-    <noscript>
-        <p> Javascript is not working properly!</p>
-    </noscript>
 
     <body>
-
-        <!-- Add this inside your <body> to trigger the script -->
-        <hello-world></hello-world>
 
         <header>
             <h1>Welcome to <code>Hailani's World</code> </h1>
@@ -84,18 +32,20 @@
             </nav>
         </header>
 
+        <hr>
+
         <main>
-            <highlight-box>
-                <h2> Hailani Lam </h2> 
-                <h3> <span style="font-weight: bold; color: darkblue;""> Aspiring Software Engineer</span></h3>
-                <p> Welcome to <strong> Hailani's World! </strong> I am a student passionate about software development, on a journey to become a skilled developer. As I explore the realms of technology and AI, I am eager to embark on new adventures and discover innovative solutions. Join me as I navigate the fascinating world of software development, combining my love for travel and exploration with my ambition to make impactful contributions in the tech industry.</p>
-    
+            <section class="highlight-box">
+                <div class= "highlight-text">
+                    <h1> Hailani Lam </h1> 
+                    <h3> <span style="font-weight: bold; color: darkblue;""> Aspiring Software Engineer</span></h3>
+                    <p> Welcome to <strong> Hailani's World! </strong> I am a student passionate about software development, on a journey to become a skilled developer. As I explore the realms of technology and AI, I am eager to embark on new adventures and discover innovative solutions. Join me as I navigate the fascinating world of software development, combining my love for travel and exploration with my ambition to make impactful contributions in the tech industry.</p>
+                </div>
                 <figure> 
                     <img src="images/me.jpg" alt="Hailani Lam's Profile Picture" width="500">
-                    <figcaption>This is <del>not</del> me!</figcaption>
                 </figure>
 
-            </highlight-box>
+            </section>
 
         </main>
 
