@@ -10,47 +10,31 @@
     <meta name="keywords" content="Hailani Lam, UCSD, AI, rock climbing, photography, Headstarter AI, job search">
     <meta name="author" content="Hailani Lam">
 
-    <style>
-        /* Custom Semantic Element */
-        highlight-box {
-            display: block;
-            border: 2px solid black;
-            padding: 15px;
-            margin: 20px 0;
-            background-color: #f8f8f8;
-        }
+    <!-- my css stylesheet-->
+    <link rel="stylesheet" href="styles.css">
 
-        body {
-            border: 2px solid black;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-        }
+    <!-- downloaf font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+   
 
-        h1, h2 {
-            margin-bottom: 10px;
-        }
-
-        ul {
-            padding-left: 20px;
-        }
-
-        strong {
-            font-weight: bold;
-        }
-    </style>
 </head>
 
 <body>
 
     <header>
 
-        <nav>
-            <a href="index.html">Home</a> |
-            <a href="about.html">About</a> |
-            <a href="projects.html">Projects</a> |
-            <a href="blog.html">Blog</a> |
-            <a href="resume.html">Resume</a> |
-            <a href="contact.html">Contact</a>
+        <nav class="nav-links">
+            <a href="index.html">Home</a> 
+            <a href="about.html">About</a> 
+            <a href="projects.html">Projects</a> 
+            <a href="resume.html">Resume</a> 
+            <!-- <a href="contact.html">Contact</a> -->
+            <!-- LinkedIn Icon -->
+            <a href="https://www.linkedin.com/in/hailani-lam" target="_blank" class="linkedin-icon">
+                <img src="images/linkedin_logo.png" alt="LinkedIn">
+            </a>
         </nav>
 
     </header>
@@ -70,7 +54,6 @@
             </div>
         </aside>
 
-        <hr> <!-- creates a line border-->
 
         <section>
             <br> <!-- create a line break-->
@@ -97,9 +80,18 @@
             
         </section>
 
-        <section>
-            <h3> My Photography, Travel & Eats</h3> <a href="gallery.html">here</a> to see my <strong>Gallery</strong> of favorite shots!</p>
+     
+        <section class="mini-gallery">
+            <h2>My Photography, Travel & Eats</h2>
+            <div class="gallery-preview">
+                <img src="images/bhcchicken_small.JPEG" alt="bhc Chicken">
+                <img src="images/oscarseafood_small.jpg" alt="oscarseafood">
+                <img src="images/rigobertos_small.jpg" alt="rigobertos">
+            </div>
+            <a href="gallery.html" class="view-more">View Full Gallery</a>
         </section>
+          
+  
         
     </main>
 

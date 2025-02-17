@@ -5,171 +5,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="styles.css">
+
     <title> Gallery</title>
     <h3><a href="../about.html">← Back to About</a></h3>
-
-
-    <style>
-        .square-image img {
-            width: 300px;  /* Adjust to your preferred size */
-            height: 300px; /* Keeps it square */
-            object-fit: cover; /* Ensures it crops instead of stretching */
-            display: block;
-        }
-
-        body {
-            border: 2px solid black;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-        }
-
-    </style>
 
     <body> 
 
         <header>
-            <div style="display: flex; align-items: center; justify-content: space-between;">
-                <h1>
-                    Gallery
-                    <svg width="30" height="30">
-                        <rect x="0" y="0" width="30" height="12" fill="green"></rect>
-                        <rect x="0" y="12" width="30" height="18" fill="brown"></rect>
-                    </svg>
-                </h1> 
-            </div>     
             <h2>Explore My Adventures ! </h2>
-
-            <canvas id="minecraftBlock" width="200" height="200"></canvas>
-
-            <script>
-                var canvas = document.getElementById("minecraftBlock");
-                var ctx = canvas.getContext("2d");
-
-                // Draw the dirt block (brown bottom half)
-                ctx.fillStyle = "#8B4513"; // Brown dirt color
-                ctx.fillRect(25, 100, 150, 100); // x, y, width, height
-
-                // Draw the grass top (green top half)
-                ctx.fillStyle = "#228B22"; // Grass green color
-                ctx.fillRect(25, 50, 150, 50); // x, y, width, height
-            </script>
-
         </header>
 
-<!-- 
-        <nav>
-            <a href="index.html">Home</a> |
-            <a href="about.html">About</a> |
-            <a href="projects.html">Projects</a> |
-            <a href="blog.html">Blog</a> |
-            <a href="resume.html">Resume</a> |
-            <a href="contact.html">Contact</a>
-        </nav> -->
-
         <hr><br>
+
         <main>
-            <form action="/submit-food-suggestion" method="post">
-                <fieldset>
-                    <legend>🍽️ Suggest a Food Place</legend>
-            
-                    <!-- Name Input -->
-                    <label for="name">Your Name:</label>
-                    <input type="text" id="name" name="name" required>
-                    <br><br>
-            
-                    <!-- Restaurant Name -->
-                    <label for="restaurant">Restaurant Name:</label>
-                    <input type="text" id="restaurant" name="restaurant" required>
-                    <br><br>
-            
-                    <!-- Cuisine Type Dropdown -->
-                    <label for="cuisine">Cuisine Type:</label>
-                    <select id="cuisine" name="cuisine">
-                        <optgroup label="Mexican">
-                            <option value="tacos">Tacos</option>
-                            <option value="burritos">Burritos</option>
-                            <option value="quesadillas">Quesadillas</option>
-                        </optgroup>
-                        <optgroup label="Asian">
-                            <option value="ramen">Ramen</option>
-                            <option value="sushi">Sushi</option>
-                            <option value="dim_sum">Dim Sum</option>
-                        </optgroup>
-                        <optgroup label="American">
-                            <option value="burgers">Burgers</option>
-                            <option value="bbq">BBQ</option>
-                            <option value="fried_chicken">Fried Chicken</option>
-                        </optgroup>
-                        <option value="none">None of the Above</option>
-                    </select>
-                    <br><br>
-            
-                    <!-- Location Input -->
-                    <label for="location">Location (City/Neighborhood):</label>
-                    <input list="locations" id="location" name="location">
-                    <datalist id="locations">
-                        <option value="Downtown San Diego">
-                        <option value="La Jolla">
-                        <option value="Pacific Beach">
-                        <option value="North Park">
-                        <option value="Little Italy">
-                        <option value="Chula Vista">
-                        <option value="Hillcrest">
-                        <option value="Gaslamp Quarter">
-                        <option value="Ocean Beach">
-                        <option value="None of the Above">
-                    </datalist>
-                    <br><br>
-            
-                    <!-- Additional Comments -->
-                    <label for="comments">Why Do You Recommend This Place?</label><br>
-                    <textarea id="comments" name="comments" rows="4" cols="50" placeholder="Tell us what makes this place great!"></textarea>
-                    <br><br>
-            
-                    <!-- Submit Button -->
-                    <button type="submit">Submit Suggestion</button>
-                </fieldset>
-            </form>
-
-            <search>
-                <label for="taco-search">Search for a Taco Spot:</label>
-                <input type="text" id="taco-search" name="taco-search" placeholder="Enter taco place...">
-                <button type="submit">Search</button>
-            </search>
-
-            <picture class="square-image">
-                <source srcset="images/oscarseafood.JPEG" media="(min-width: 1000px)">
-                <img src="images/oscarseafood_small.jpg" alt="Delicious tacos">
-            </picture>
-            <details>
-                <summary>Surf n turf @ Oscar's Seafood !</summary>
-                <p> Location: 746 Emerald St, San Diego, CA 92109 </p>
-                
-            </details>
-    
         
-           
+            <section class="gallery-grid">
 
-            <h3>🌮 Top 3 Favorite Taco Spots</h3>
-            <ol>
-                <li>Oscar's Seafood</li>
-                <li>Tacos El Gordo</li>
-                <li>Taco Stand</li>
-            </ol>
-
-          
-
+                <!-- Image Items -->
+                <figure>
+                    <source srcset="images/oscarseafood.JPEG" media="(min-width: 1000px)">
+                    <img src="images/oscarseafood_small.jpg" alt="Delicious tacos">
+                    <figcaption>Surf n turf @ Oscar's Seafood !</figcaption>       
+                </figure>
             
-            <br>
-            <video controls width="500" muted>
-                <source src="video/climbing.MP4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <figcaption> climbing @ Grotto !</figcaption>
-            <audio controls>
-                <source src = "audio/mixkit-ending-show-audience-clapping-478.wav" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
+                <figure>
+                    <source srcset="images/bhcchicken.JPEG" media="(min-width: 1000px)">
+                    <img src="images/bhcchicken_small.JPEG" alt="Yummy Chicken">
+                    <figcaption>BHC Chicken</figcaption>
+                </figure>
+            
+                <!-- Video Items -->
+                <figure>
+                    <video controls>
+                        <source src="video/climbing.MP4" type="video/mp4">
+                    </video>
+                    <figcaption> Climbing a v4-5 @ Grotto !</figcaption>
+                </figure>
+                
+                <figure>
+                    <video controls>
+                        <source src="video/climbing2.MP4" type="video/mp4">
+                    </video>
+                    <figcaption> Climbing a v4-5 @ Grotto </figcaption>
+                </figure>
+            
+            </section>
+
+
+        
 
         </main>
         
