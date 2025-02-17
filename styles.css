@@ -6,6 +6,16 @@
     --font-primary: "Atkinson Hyperlegible Mono", "Courier New", monospace;
 }
 
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centers items */
+    align-items: center;
+    max-width: 100%; /* Prevents overflow */
+    padding: 0 10px;
+}
+
+
 .nav-links a {
     position: relative;
     text-decoration: none;
@@ -31,9 +41,15 @@
     transform: scaleX(1);
 }
 
+/* LinkedIn Icon */
+.linkedin-icon {
+    display: inline-block;
+    margin-left: 10px;
+}
+
 /* Style LinkedIn Icon */
 .linkedin-icon img {
-    width: 20px; /* Adjust size */
+    width: 24px; /* Adjust size */
     height: auto;
     transition: transform 0.2s ease-in-out;
 }
@@ -41,6 +57,24 @@
 /* Add a hover effect */
 .linkedin-icon img:hover {
     transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .linkedin-icon {
+        position: relative;
+        margin-left: 5px;
+    }
+
+    /* Adjust the image size for mobile */
+    .linkedin-icon img {
+        width: 20px;
+    }
 }
 
 
@@ -104,6 +138,34 @@ body {
     background-color:var(--primary-color, blue);
 }
 
+/* Prevent horizontal scrolling */
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+
+/* Balance header spacing */
+header {
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Ensure sections are centered */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 90%;
+    margin: 0 auto;
+}
 
 ul {
     padding-left: 20px;
