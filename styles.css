@@ -279,3 +279,20 @@ section:has(img) {
     color: brown;
     text-decoration: underline;
 }
+
+
+/* Form Layout */
+form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: auto;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    padding: 20px;
+    border: 2px solid black;  /* Adds a visible border */
+    border-radius: 12px;  /* Rounds the edges */
+    background-color: var(--secondary-color);  /* Light background */
+
+}
+
