@@ -27,14 +27,31 @@
     <body>
 
         <header>
+            <script src="script.js"></script>
+            
+            <noscript>
+                <style>
+                    .theme-switch-wrapper {
+                        display: none !important;
+                    }
+                </style>
+            </noscript>
+
+            <div class="theme-switch-wrapper">
+                <span class="theme-icon">🌞</span> <!-- Light Mode Icon -->
+                <div id="theme-toggle-container">
+                    <div id="theme-toggle" class="theme-switch"></div>
+                </div>
+                <span class="theme-icon">🌌</span> <!-- Space Theme Icon -->
+            </div>
+            
+
             <h1>
                 Welcome to <code>Hailani's World</code>.
                 <img src = "spinning_globe.gif" alt="Spinning Globe" class="globe-gif">
-                <!-- fallback support, if spinning globe gif does not work-->
-                <noscript>
-                    <img src="images/static-globe.png" alt="Static Globe">
-                </noscript>
+            
             </h1>
+
 
             <nav class="nav-links">
                 <a href="index.html">Home</a> 

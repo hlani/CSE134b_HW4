@@ -1,61 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        
-        <title> Contact </title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact</title>
+    <link rel="stylesheet" href="styles.css">
 
-        <!-- my css stylesheet-->
-        <link rel="stylesheet" href="styles.css">
+    <!-- downloaf font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+</head>
 
-        <!-- downloaf font -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
-        
-    </head>
+<body>
+    <header>
+        <h1>Let's keep in touch!</h1>
+
+        <nav class="nav-links">
+            <a href="index.html">Home</a> 
+            <a href="about.html">About</a> 
+            <a href="projects.html">Projects</a> 
+            <a href="resume.html">Resume</a> 
+            <a href="contact.html">Contact</a>
+             <!-- LinkedIn Icon -->
+            <a href="https://www.linkedin.com/in/hailani-lam" target="_blank" class="linkedin-icon">
+                <img src="images/linkedin_logo.png" alt="LinkedIn">
+            </a>
+        </nav>
+    </header>
+
+    <form id="contactForm" action="https://httpbin.org/post" method="POST">
+        <!-- Name Field -->
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="First Last" required minlength="2" maxlength="50">
+        <span class="error-message" id="nameError"></span>
+
+        <!-- Email Field -->
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <span class="error-message" id="emailError"></span>
+
+        <!-- Comments Field -->
+        <label for="comments">Comments:</label>
+        <textarea id="comments" name="comments" required minlength="10" maxlength="300"></textarea>
+        <span class="error-message" id="commentsError"></span>
+        <span class="info-message" id="charCount"></span>
+
+        <!-- Hidden Inputs -->
+        <input type="hidden" name="possible_bot" value="true">
+        <input type="hidden" id="formErrors" name="form-errors" value="[]">
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const form = document.getElementById("contactForm");
+            const nameField = document.getElementById("name");
+            const emailField = document.getElementById("email");
+            const commentsField = document.getElementById("comments");
+            const charCountOutput = document.getElementById("charCount");
+            const formErrorsInput = document.getElementById("formErrors");
+
+            let formErrors = []; // Track errors
+
+            function validateField(field, errorElement, pattern, errorMessage) {
+                const value = field.value.trim();
+                const fieldName = field.name;
+
+                formErrors = formErrors.filter(error => error.field !== fieldName);
+
+                if (!pattern.test(value)) {
+                    errorElement.textContent = errorMessage;
+                    errorElement.style.display = "block";
+                    formErrors.push({ field: fieldName, error: errorMessage });
+                } else {
+                    errorElement.style.display = "none"; // Hide error when valid
+                }
+            }
+
+            function validateName() {
+                validateField(
+                    nameField,
+                    document.getElementById("nameError"),
+                    /^[A-Za-z]+(?:\s[A-Za-z]+)+$/,
+                    "Enter first and last name (letters only)."
+                );
+            }
+
+            function validateEmail() {
+                validateField(
+                    emailField,
+                    document.getElementById("emailError"),
+                    /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                    "Enter a valid email address."
+                );
+            }
+
+            function validateComments() {
+                const maxLength = 300;
+                const currentLength = commentsField.value.length;
+                charCountOutput.textContent = `Characters left: ${maxLength - currentLength}`;
+
+                if (currentLength >= maxLength) {
+                    charCountOutput.style.color = "red";
+                } else if (currentLength > maxLength - 20) {
+                    charCountOutput.style.color = "orange";
+                } else {
+                    charCountOutput.style.color = "black";
+                }
+
+                validateField(
+                    commentsField,
+                    document.getElementById("commentsError"),
+                    /^[a-zA-Z0-9 .,!?'\"-]+$/,
+                    "Only letters, numbers, and common punctuation allowed."
+                );
+            }
+
+            // Prevent invalid characters in name & comments
+            nameField.addEventListener("input", () => {
+                nameField.value = nameField.value.replace(/[^A-Za-z\s]/g, "");
+            });
+
+            commentsField.addEventListener("input", validateComments);
+
+            // Attach validation on blur
+            nameField.addEventListener("blur", validateName);
+            emailField.addEventListener("blur", validateEmail);
+            commentsField.addEventListener("blur", validateComments);
+
+            // Handle form submission
+            form.addEventListener("submit", (event) => {
+                formErrors = []; // Reset errors
+                validateName();
+                validateEmail();
+                validateComments();
 
 
-    <body>
-        <header>
-            <h1> let's keep in touch! </h1>
-            <nav>
-                <a href="index.html">Home</a> 
-                <a href="about.html">About</a> 
-                <a href="projects.html">Projects</a> 
-                <a href="resume.html">Resume</a> 
-                <a href="contact.html">Contact</a>
-                 <!-- LinkedIn Icon -->
-                <a href="https://www.linkedin.com/in/hailani-lam" target="_blank" class="linkedin-icon">
-                  <img src="images/linkedin_logo.png" alt="LinkedIn">
-                </a>
-            </nav>
-        </header>
+                if (formErrors.length > 0) {
+                    
+                    formErrorsInput.value = JSON.stringify(formErrors);
 
-
-        <form action="https://httpbin.org/post" method="POST">
-          <label for="name">Name:</label>
-          <input type="text" id="name" name="name" required>
-          <output class="error-message"></output>
-          <output class="info-message"></output>
-      
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required>
-          <output class="error-message"></output>
-          <output class="info-message"></output>
-      
-          <label for="comments">Comments:</label>
-          <textarea id="comments" name="comments" required>This is a test!</textarea>
-          <output class="error-message"></output>
-          <output class="info-message"></output>
-      
-          <input type="hidden" name="possible_bot" value="true">
-
-          <br>
-      
-          <button type="submit">Submit</button>
-      </form>
-      
-    </body>
+                    console.log("❌ Form submission blocked due to errors.");
+                    event.preventDefault();
+                    alert("Please fix the errors before submitting.");
+                }
+            });
+        });
+    </script>
+</body>
 </html>
